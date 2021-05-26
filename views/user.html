@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>用户资料</title>
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="http://10.9.47.242:3000/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="http://10.9.47.242:3000/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="http://10.9.47.242:3000/css/animate.css" rel="stylesheet">
+    <link href="http://10.9.47.242:3000/css/style.css?v=4.1.0" rel="stylesheet">
+    <style>
+        .head-img{
+            height: 60px;
+            width: 60px;
+        }
+    </style>
+    <style>
+
+        .ibox-content.use-info{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .ibox-content.use-info img {
+            width: 100%;
+        }
+        .user-outer{
+            background-color: white;
+        }
+
+    </style>
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">
+        <div class="row animated fadeInRight">
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>个人资料</h5>
+                    </div>
+                    <div class="user-outer">
+                        <div class="ibox-content no-padding border-left-right use-info" style="margin-left: 16px;">
+                            <div class="head-img" style="background: url({{userInfo.headsrc}})center/cover;"></div>
+                        </div>
+                        <div class="ibox-content profile-content">
+                            <h4><strong>{{userInfo.name}}</strong></h4>
+                            <p><i class="fa fa-map-marker"></i> {{userInfo.site}}</p>
+                            <h5>
+                                    关于我
+                                </h5>
+                            {{if email===""}}
+                                <p>去完善资料</p>
+                                <a href="http://10.9.47.242:3000/admin/changeuser" class="btn btn-success">去完善</a>
+                            {{else}}
+                                <a href="http://10.9.47.242:3000/admin/changeuser" class="btn btn-success">去修改资料</a>
+                            {{/if}}
+                            <br><a href="http://10.9.47.242:3000/changepass.html" class="btn btn-warning btn-sm">修改密码</a>
+                            <div class="row m-t-lg">
+                                <div class="col-sm-4">
+                                    <span class="bar">{{article}}</span>
+                                    <h5><strong>{{userInfo.article.num}}</strong> 文章</h5>
+                                </div>
+                                <div class="col-sm-4">
+                                    <span class="line">{{like}}</span>
+                                    <h5><strong>{{userInfo.article.like}}</strong> 关注</h5>
+                                </div>
+                                <div class="col-sm-4">
+                                    <span class="bar">{{beLike}}</span>
+                                    <h5><strong>{{userInfo.article.beLike}}</strong> 关注者</h5>
+                                </div>
+                            </div>
+                            <div class="user-button">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> 发送消息</button>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-coffee"></i> 赞助</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 全局js -->
+    <script src="http://10.9.47.242:3000/js/jquery.min.js?v=2.1.4"></script>
+    <script src="http://10.9.47.242:3000/js/bootstrap.min.js?v=3.3.6"></script>
+
+
+
+    <!-- 自定义js -->
+    <script src="http://10.9.47.242:3000/js/content.js?v=1.0.0"></script>
+
+
+    <!-- Peity -->
+    <script src="http://10.9.47.242:3000/js/plugins/peity/jquery.peity.min.js"></script>
+
+    <!-- Peity -->
+    <script src="http://10.9.47.242:3000/js/demo/peity-demo.js"></script>
+
+
+</body>
+
+</html>

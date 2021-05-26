@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重置密码</title>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <script src="http://10.9.47.242:3000/js/myjs/common.js"></script>
+    <style>
+        a,p{
+            font-size: 20px;
+        }
+        .outer{
+            margin: 50px auto;
+            width: 400px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+
+    <div class="outer">
+        <h2>{{value}}</h2>
+        <a href="javascript:void(0)" class="gologin">{{info}}</a>
+        <p><span>{{timer}}</span> 秒后自动跳转</p>
+    </div>
+    <script>
+
+        let span = document.querySelector("span");
+        let a = document.querySelector("a");
+        let index = {{timer}};
+
+        $(".gologin").click(function () {
+            location.replace("{{url}}");
+        })
+        setInterval(() => {
+            span.textContent=--index;
+            if (index<=0) location.replace("{{url}}");
+        },1000)
+    </script>
+</body>
+</html>

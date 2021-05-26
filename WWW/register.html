@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>注册页面</title>
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="http://10.9.47.242:3000/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="http://10.9.47.242:3000/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="http://10.9.47.242:3000/css/animate.css" rel="stylesheet">
+    <link href="http://10.9.47.242:3000/css/style.css?v=4.1.0" rel="stylesheet">
+    <style>
+        .error-msg-outer {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-6" style="margin-left: 50%;transform: translateX(-50%);">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>完整验证表单</h5>
+                        <div class="ibox-tools">
+                            <h5 style="color: red;">*为必填项</h5>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <form action="javascript:void(0)" class="form-horizontal m-t" id="signupForm">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">名字 * ：</label>
+                                <div class="col-sm-8">
+                                    <input id="lastname" name="name" class="form-control" type="text"
+                                        aria-required="true" aria-invalid="false" class="error">
+                                    <span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 请输入真实姓名</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">用户名 * ：</label>
+                                <div class="col-sm-8">
+                                    <input id="username" name="username" class="form-control" type="text"
+                                        aria-required="true" aria-invalid="true" class="error">
+                                    <span class="help-block m-b-none error-msg-outer"><i class="fa fa-info-circle"></i>
+                                        <span class="error-msg">用户名已存在</span></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">密码 * ：</label>
+                                <div class="col-sm-8">
+                                    <input id="password" name="password" class="form-control" type="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">确认密码 * ：</label>
+                                <div class="col-sm-8">
+                                    <input id="confirm_password" name="confirm_password" class="form-control"
+                                        type="password">
+                                    <span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 请再次输入您的密码</span>
+                                </div>
+                            </div>
+                            <!-- <div class="form-group">
+                                <label class="col-sm-3 control-label">权限：</label>
+                                <div class="col-sm-8">
+                                    <input id="power" name="power" class="form-control" type="text">
+                                </div>
+                            </div> -->
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">权限 * ：</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="power">
+                                        <option value="3">员工</option>
+                                        <option value="2">小组组长</option>
+                                        <option value="1">管理者</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">手机号：</label>
+                                <div class="col-sm-8">
+                                    <input id="phone" name="username" class="form-control" type="text"
+                                        aria-invalid="true" class="error">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">邮箱：</label>
+                                <div class="col-sm-8">
+                                    <input id="e-mail" name="username" class="form-control" type="text"
+                                        aria-invalid="true" class="error">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">上传头像 * ：</label>
+                                <div class="col-sm-8">
+                                    <input id="headfile" class="form-control" type="file">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="checkbox" id="agree" name="agree">
+                                            我已经认真阅读并同意《郝福胜登录界面使用协议》
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button class="btn btn-primary" type="submit">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- 全局js -->
+    <script src="http://10.9.47.242:3000/js/jquery.min.js?v=2.1.4"></script>
+    <script src="http://10.9.47.242:3000/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="http://10.9.47.242:3000/layer/layer.js"></script>
+
+    <!-- 自定义js -->
+    <!-- <script src="http://10.9.47.242:3000/js/content.js?v=1.0.0"></script> -->
+
+    <!-- jQuery Validation plugin javascript-->
+    <script src="http://10.9.47.242:3000/js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="http://10.9.47.242:3000/js/plugins/validate/messages_zh.min.js"></script>
+
+    <script src="http://10.9.47.242:3000/js/demo/form-validate-demo.js"></script>
+
+
+    <!-- fs代码 -->
+
+    <script>
+
+        let headSrc;
+
+        init();
+
+        function init() {
+            $("form").on("input", (e) => saveMsg(e))
+            getMsg();
+            getElem();
+        }
+
+        /*
+            做表单刷新，提交错误后的内容保存，增加用户体验
+        */
+
+        function saveMsg(e) {
+            saveMsg = debounce(function (e) {
+                let option = {
+                    name: $("#lastname").val(),
+                    username: $("#username").val(),
+                    password: $("#password").val(),
+                    power: +$("#power").val(),
+                    headsrc: headSrc ? headSrc : "",
+                    phone: $("#phone").val(),
+                    email: $("#e-mail").val()
+                }
+
+                localStorage.setItem("usermsg", JSON.stringify(option));
+            }, 1000);
+            saveMsg(e);
+        }
+
+        function getMsg() {
+            if(!localStorage.getItem("usermsg")) return;
+            let option = JSON.parse(localStorage.getItem("usermsg")); 
+            $("#lastname").val(option.name);
+            $("#username").val(option.username);
+            $("#password").val(option.password);
+            $("#confirm_password").val(option.cPassword);
+            $("#power").val(+option.power);
+            headsrc = option.headSrc;
+            $("#phone").val(option.phone);
+            $("#e-mail").val(option.email);
+        }
+
+        function debounce(fn, space) {
+            let ids;
+            return function (...arg) {
+                if (ids) {
+                    clearTimeout(ids);
+                }
+                ids = setTimeout(function () {
+                    clearTimeout(ids);
+                    ids = undefined;
+                    fn(...arg);
+                }, space);
+            }
+        }
+
+        function getElem() {
+            $(".btn-primary").eq(0).click(function () {
+                if ($("#username").val().length < 5 || $("#password").val().length < 5) {
+                    layer.msg("账号或密码长度不符");
+                    return;
+                }
+                if (!$("#agree").prop("checked")) {
+                    layer.msg("请先勾选同意");
+                    return;
+                }
+                $.post("http://10.9.47.242:3000/register", {
+                    uid: Date.now(),
+                    name: $("#lastname").val(),
+                    username: $("#username").val(),
+                    password: $("#password").val(),
+                    power: +$("#power").val(),
+                    headsrc: headSrc ? headSrc : "",
+                    status: "pedding",
+                    createTime: Date.now(),
+                    lastTime: Date.now(),
+                    plan: 0,
+                    delete: false,
+                    phone: $("#phone").val(),
+                    email: $("#e-mail").val()
+                }, function (result) {
+                    if (result.type === "error") {
+                        layer.msg(result.detail.name);
+                    } else {
+                        location.href = "http://10.9.47.242:3000/login.html";
+                    }
+                }, "json")
+            })
+        }
+
+        $("#headfile").change(function (e) {
+            let file = this;  //获取问价控件
+            let fr = new FileReader(); //创建文件异步读取独享
+            fr.readAsArrayBuffer(file.files[0]) //获取第一个文件
+            $(fr).load(function (e) { //文件读取完毕上传
+
+
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", "http://10.9.47.242:3000/upload/headimg?filename=" + file.files[0].name);
+                xhr.setRequestHeader("file-type", "stream");
+                xhr.addEventListener("load", function (e) {
+                    headSrc = JSON.parse(this.response).detail.value.src;
+                });
+                let data = new Uint8Array(fr.result);
+                xhr.send(data);
+            });
+        })
+
+
+    </script>
+
+
+</body>
+
+</html>

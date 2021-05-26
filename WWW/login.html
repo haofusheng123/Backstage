@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>H+ 后台主题UI框架 - 表单验证 jQuery Validation</title>
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <script src="http://10.9.47.242:3000/js/jquery.js"></script>
+    <script src="http://10.9.47.242:3000/layer/layer.js"></script>
+
+    <style>
+
+        .typename{
+            color: red;
+            padding-left: 54px;
+        }
+
+    </style>
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>用户登录页面</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <p>请输入你的登录信息</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="" style="margin-left: 50%;transform: translateX(-50%);width: 500px;">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>请输入账号密码</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="form_basic.html#">选项1</a>
+                                </li>
+                                <li><a href="form_basic.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <form class="form-horizontal m-t" id="commentForm"  action="http://10.9.47.242:3000/login" method="POST">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">用户名：</label>
+                                <div class="col-sm-8">
+                                    <input id="cname" name="username" minlength="2" type="text" class="form-control user"
+                                        required="" aria-required="true">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">密&emsp;码：</label>
+                                <div class="col-sm-8">
+                                    <input id="cemail" type="password" class="form-control pass" name="password" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p class="typename"></p>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button class="btn btn-primary" type="submit">提交</button>
+                                    <a class="btn btn-default" style="display: inline-block;margin-left: 40px;" href="http://10.9.47.242:3000/register.html">注册</a>
+
+                                    <a style="margin-left: 40px;" href="http://10.9.47.242:3000/fontpass.html">忘记密码？</a>
+        
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- 全局js -->
+        <script src="js/jquery.min.js?v=2.1.4"></script>
+        <script src="js/bootstrap.min.js?v=3.3.6"></script>
+
+        <!-- 自定义js -->
+        <!-- <script src="js/content.js?v=1.0.0"></script> -->
+
+        <!-- jQuery Validation plugin javascript-->
+        <script src="js/plugins/validate/jquery.validate.min.js"></script>
+        <script src="js/plugins/validate/messages_zh.min.js"></script>
+
+        <script src="js/demo/form-validate-demo.js"></script>
+
+        <script>
+
+            let form, user, pass, btn, subBool, typename;
+
+            init();
+            function init() {
+                setElem();
+                form.addEventListener("submit", subHandler);
+                showalert();
+            }
+
+            function showalert() {
+                let arr = ["", "账号或者密码错误", "令牌失效"]
+                let type = location.href.split("?")[1];
+                let code = type ? type.split("=")[1] : 0;
+                typename.textContent = arr[code];
+            }
+
+            function setElem() {
+                form = document.querySelector("#commentForm");
+                user = document.querySelector("#commentForm .user");
+                pass = document.querySelector("#commentForm .pass");
+                btn = document.querySelector("#commentForm button");
+                typename = document.querySelector("#commentForm .typename");
+            }
+
+            function subHandler(e) {
+                if (user.value.length < 5 || pass.value.length.length < 5) {
+                    e.preventDefault();
+                    layer.msg('账号或密码长度不符');
+                    return;
+                }
+                btn.disabled = true;
+                disBtn();
+            }
+
+            function disBtn() {
+                disBtn = debounce(function (e) {
+                    btn.disabled = false;
+                }, 1000);
+            }
+
+
+            function debounce(fn, space) {
+                let ids;
+                return function (...arg) {
+                    if (ids) {
+                        clearTimeout(ids);
+                    }
+                    ids = setTimeout(function () {
+                        clearTimeout(ids);
+                        ids = undefined;
+                        fn(...arg);
+                    }, space);
+                }
+            }
+
+
+        </script>
+
+</body>
+
+</html>
